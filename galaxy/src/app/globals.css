@@ -1,26 +1,592 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* ==============================
+     Base
+  ============================== */
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* ==============================
+     Sidebar
+  ============================== */
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* ==============================
+     Charts
+  ============================== */
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* ==============================
+     Custom
+  ============================== */
+
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+
+  --color-brand: var(--brand);
+
+  --color-silver: var(--silver);
+  --color-platinum: var(--platinum);
+  --color-titanium: var(--titanium);
+  --color-gold: var(--gold);
+
+  --color-nebula: var(--nebula);
+  --color-starlight: var(--starlight);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-heart: var(--heart);
+
+  --color-glass: var(--glass);
+  --color-glass-border: var(--glass-border);
+
+  --color-hero-start: var(--hero-start);
+  --color-hero-end: var(--hero-end);
+
+  --shadow-soft: var(--shadow-soft);
+  --shadow-card: var(--shadow-card);
+  --shadow-glow: var(--shadow-glow);
+
+  /* ==============================
+     Fonts
+  ============================== */
+
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* ==============================
+     Radius
+  ============================== */
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* =======================================================
+   LIGHT THEME
+======================================================= */
+
+:root {
+  /* ==============================
+     Base
+  ============================== */
+
+  --background: #f8f8f6;
+  --foreground: #111111;
+
+  --card: #ffffff;
+  --card-foreground: #111111;
+
+  --popover: #ffffff;
+  --popover-foreground: #111111;
+
+  /* ==============================
+     Brand
+  ============================== */
+
+  --primary: #111111;
+  --primary-foreground: #ffffff;
+
+  --secondary: #f1f2f3;
+  --secondary-foreground: #202124;
+
+  --muted: #efefef;
+  --muted-foreground: #70757a;
+
+  --accent: #f6f5f2;
+  --accent-foreground: #1a1a1a;
+
+  --destructive: #d84c4c;
+
+  --border: rgba(17, 17, 17, 0.08);
+  --input: rgba(17, 17, 17, 0.08);
+
+  --ring: #d4b27a;
+
+  /* ==============================
+     Charts
+  ============================== */
+
+  --chart-1: #d4b27a;
+  --chart-2: #7fa7d8;
+  --chart-3: #8ec7a7;
+  --chart-4: #d8a46a;
+  --chart-5: #aa9bd8;
+
+  /* ==============================
+     Radius
+  ============================== */
+
+  --radius: 1.4rem;
+
+  /* ==============================
+     Sidebar
+  ============================== */
+
+  --sidebar: #fafafa;
+  --sidebar-foreground: #111;
+
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: #fff;
+
+  --sidebar-accent: #f2f2f2;
+  --sidebar-accent-foreground: #111;
+
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+
+  /* ==============================
+     Hero
+  ============================== */
+
+  --hero-start: #ffffff;
+  --hero-end: #ece8df;
+
+  /* ==============================
+     Surface
+  ============================== */
+
+  --surface: #ffffff;
+  --surface-hover: #f7f7f5;
+
+  /* ==============================
+     Luxury Palette
+  ============================== */
+
+  --brand: #d4b27a;
+
+  --gold: #d4b27a;
+  --platinum: #e8e8e8;
+  --silver: #d8d9dc;
+  --titanium: #8d9198;
+
+  --nebula: #5e5ce6;
+  --starlight: #fffdf8;
+
+  /* ==============================
+     Status
+  ============================== */
+
+  --success: #47b97f;
+  --warning: #d9a63b;
+  --heart: #db6179;
+
+  /* ==============================
+     Glass
+  ============================== */
+
+  --glass: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.82);
+
+  /* ==============================
+     Shadows
+  ============================== */
+
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+  --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.1);
+
+  --shadow-glow: 0 0 70px rgba(212, 178, 122, 0.1);
+}
+
+/* =======================================================
+   DARK THEME
+======================================================= */
+
+.dark {
+  /* ==============================
+     Base
+  ============================== */
+
+  --background: #050505;
+  --foreground: #f7f7f5;
+
+  --card: #0d0d0f;
+  --card-foreground: #f7f7f5;
+
+  --popover: #0d0d0f;
+  --popover-foreground: #f7f7f5;
+
+  /* ==============================
+     Brand
+  ============================== */
+
+  --primary: #ffffff;
+  --primary-foreground: #111111;
+
+  --secondary: #161619;
+  --secondary-foreground: #ededed;
+
+  --muted: #151517;
+  --muted-foreground: rgba(255, 255, 255, 0.62);
+
+  --accent: #1b1b1f;
+  --accent-foreground: #ffffff;
+
+  --destructive: #ff6b6b;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.08);
+
+  --ring: #d4b27a;
+
+  /* ==============================
+     Charts
+  ============================== */
+
+  --chart-1: #d4b27a;
+  --chart-2: #7cb7ff;
+  --chart-3: #72d2b2;
+  --chart-4: #f3b562;
+  --chart-5: #b49cff;
+
+  /* ==============================
+     Sidebar
+  ============================== */
+
+  --sidebar: #09090b;
+  --sidebar-foreground: #f5f5f5;
+
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: #111111;
+
+  --sidebar-accent: #151518;
+  --sidebar-accent-foreground: #ffffff;
+
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --sidebar-ring: var(--ring);
+
+  /* ==============================
+     Hero
+  ============================== */
+
+  --hero-start: #050505;
+  --hero-end: #111214;
+
+  /* ==============================
+     Surface
+  ============================== */
+
+  --surface: #0d0d0f;
+  --surface-hover: #16161a;
+
+  /* ==============================
+     Luxury Palette
+  ============================== */
+
+  --brand: #d4b27a;
+
+  --gold: #d4b27a;
+  --platinum: #f5f5f5;
+  --silver: #d9d9d9;
+  --titanium: #9aa0a8;
+
+  --nebula: #7c6cff;
+  --starlight: #fffefb;
+
+  /* ==============================
+     Status
+  ============================== */
+
+  --success: #73d5a3;
+  --warning: #f4c15d;
+  --heart: #ff718c;
+
+  /* ==============================
+     Glass
+  ============================== */
+
+  --glass: rgba(255, 255, 255, 0.035);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  /* ==============================
+     Shadows
+  ============================== */
+
+  --shadow-soft: 0 12px 32px rgba(0, 0, 0, 0.45);
+
+  --shadow-card: 0 30px 90px rgba(0, 0, 0, 0.7);
+
+  --shadow-glow: 0 0 90px rgba(212, 178, 122, 0.08);
+}
+
+/* =======================================================
+   BASE
+======================================================= */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--background);
+    background-image:
+      radial-gradient(
+        circle at top,
+        color-mix(in srgb, var(--gold) 8%, transparent),
+        transparent 45%
+      ),
+      linear-gradient(180deg, var(--hero-start), var(--hero-end));
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--gold) 55%, transparent);
+    color: white;
+  }
+
+  img {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  button {
+    cursor: pointer;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* =======================================================
+   COMPONENT UTILITIES
+======================================================= */
+
+@layer utilities {
+  /* ---------- Glass ---------- */
+
+  .glass {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .glass-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow: var(--shadow-card);
+  }
+
+  /* ---------- Shadows ---------- */
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* ---------- Premium Text ---------- */
+
+  .text-gold {
+    color: var(--gold);
+  }
+
+  .text-silver {
+    color: var(--silver);
+  }
+
+  .text-titanium {
+    color: var(--titanium);
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(
+      135deg,
+      #fffef8 0%,
+      var(--gold) 40%,
+      #f8e5bc 70%,
+      #ffffff 100%
+    );
+
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  /* ---------- Buttons ---------- */
+
+  .btn-gold {
+    background: linear-gradient(135deg, #b58b55, var(--gold), #efd39e);
+
+    color: black;
+
+    transition: 0.35s;
+
+    box-shadow: 0 12px 35px rgba(212, 178, 122, 0.22);
+  }
+
+  .btn-gold:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 18px 45px rgba(212, 178, 122, 0.3);
+  }
+
+  /* ---------- Background ---------- */
+
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+
+    background-size: 48px 48px;
+  }
+
+  .bg-stars {
+    background:
+      radial-gradient(
+        circle at 20% 20%,
+        rgba(255, 255, 255, 0.25) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at 80% 35%,
+        rgba(255, 255, 255, 0.18) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at 40% 80%,
+        rgba(255, 255, 255, 0.18) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at 70% 70%,
+        rgba(255, 255, 255, 0.12) 1px,
+        transparent 1px
+      );
+
+    background-size: 340px 340px;
+  }
+
+  .bg-orion {
+    background:
+      radial-gradient(
+        circle at center,
+        rgba(212, 178, 122, 0.12),
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at top,
+        rgba(124, 108, 255, 0.12),
+        transparent 45%
+      ),
+      linear-gradient(180deg, var(--hero-start), var(--hero-end));
+  }
+
+  /* ---------- Borders ---------- */
+
+  .border-glow {
+    border: 1px solid rgba(212, 178, 122, 0.18);
+  }
+
+  .border-soft {
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* ---------- Animations ---------- */
+
+  .animate-float {
+    animation: float 7s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 5s ease-in-out infinite;
+  }
+}
+
+/* =======================================================
+   KEYFRAMES
+======================================================= */
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 0 rgba(212, 178, 122, 0.08);
+  }
+
+  50% {
+    box-shadow: 0 0 60px rgba(212, 178, 122, 0.16);
+  }
+
+  100% {
+    box-shadow: 0 0 0 rgba(212, 178, 122, 0.08);
+  }
 }
