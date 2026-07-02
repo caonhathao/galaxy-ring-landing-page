@@ -1,3 +1,4 @@
+"use client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { CardHeader, CardTitle, CardContent, Card } from "@/components/ui/card";
 import {
@@ -7,29 +8,29 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";
-
+import Autoplay from "embla-carousel-autoplay";
 const cardContent = [
   {
     customer: "Hoàng Hiệp \n(Kỹ sư phần mềm)",
-    avatar: "Selfie",
+    avatar: "https://github.com/maxleiter.png",
     review:
       "Tôi quên mất là mình đang đeo nhẫn vì nó quá nhẹ. Khả năng phân tích giấc ngủ bằng AI chuẩn xác một cách kinh ngạc!",
   },
   {
     customer: "Anh Thư \n(Nhân viên văn phòng)",
-    avatar: "Selfie",
+    avatar: "https://github.com/evilrabbit.png",
     review:
       "Tôi có thể điều khiển các thiết bị trong nhà mà không cần chạm vào điện thoại. Thật tiện lợi!",
   },
   {
     customer: "Minh Tuấn \n(Vận động viên thể thao)",
-    avatar: "Selfie",
+    avatar: "https://github.com/shadcn.png",
     review:
       " Chiếc nhẫn này giúp tôi theo dõi nhịp tim và mức độ căng thẳng trong quá trình tập luyện. Tôi cảm thấy an tâm hơn khi luyện tập.",
   },
   {
     customer: "Hồng Phấn \n(Giáo viên về hưu)",
-    avatar: "Selfie",
+    avatar: "",
     review:
       "Chiến nhẫn này giúp tôi theo dõi sức khỏe và nhịp tim của mình một cách dễ dàng. Tôi cảm thấy yên tâm hơn khi đi dạo hay tập thể dục.",
   },
@@ -37,15 +38,24 @@ const cardContent = [
 
 const SocialProofSection = () => {
   return (
-    <section className="h-full w-full flex flex-col justify-center items-center gap-2 my-3 p-2">
-      <p className="font-bold">Nhận Xét Từ Khách Hàng</p>
+    <section
+      id="social-proof"
+      className="h-full w-full flex flex-col justify-center items-center gap-2 px-2 py-5 bg-card"
+    >
+      <p className="font-bold text-2xl">Nhận Xét Từ Khách Hàng</p>
       <Carousel
         opts={{
           align: "start",
           loop: true,
-          duration: 2,
         }}
-        className="w-full max-w-72"
+        plugins={[
+          Autoplay({
+            stopOnInteraction: true,
+            stopOnMouseEnter: true,
+            playOnInit: true,
+          }),
+        ]}
+        className="w-full max-w-64"
       >
         <CarouselContent>
           {cardContent.map((item, index) => (
@@ -53,7 +63,7 @@ const SocialProofSection = () => {
               <div className="p-1 h-full">
                 <Card
                   size="sm"
-                  className="w-full h-full rounded-sm drop-shadow-gold"
+                  className="w-full h-full rounded-sm shadow-glow"
                 >
                   <CardHeader className="flex flex-row justify-start items-center gap-2">
                     <Avatar size="lg">
@@ -70,8 +80,8 @@ const SocialProofSection = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="hidden" />
+        <CarouselNext className="hidden" />
       </Carousel>
     </section>
   );
