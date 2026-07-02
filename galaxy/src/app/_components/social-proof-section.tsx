@@ -8,7 +8,12 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";
+import {
+  fadeInUpVariants,
+  staggerContainerVariants,
+} from "@/lib/motion/animations";
 import Autoplay from "embla-carousel-autoplay";
+import { motion } from "framer-motion";
 const cardContent = [
   {
     customer: "Hoàng Hiệp \n(Kỹ sư phần mềm)",
@@ -38,52 +43,63 @@ const cardContent = [
 
 const SocialProofSection = () => {
   return (
-    <section
+    <motion.section
       id="social-proof"
       className="h-full w-full flex flex-col justify-center items-center gap-2 px-2 py-5 bg-card"
+      variants={staggerContainerVariants}
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{
+        once: false,
+        amount: 0.2,
+      }}
     >
-      <p className="font-bold text-2xl">Nhận Xét Từ Khách Hàng</p>
-      <Carousel
-        opts={{
-          align: "start",
-          loop: true,
-        }}
-        plugins={[
-          Autoplay({
-            stopOnInteraction: true,
-            stopOnMouseEnter: true,
-            playOnInit: true,
-          }),
-        ]}
-        className="w-full max-w-64"
-      >
-        <CarouselContent>
-          {cardContent.map((item, index) => (
-            <CarouselItem key={index} className="sm:basis-1/2">
-              <div className="p-1 h-full">
-                <Card
-                  size="sm"
-                  className="w-full h-full rounded-sm shadow-glow"
-                >
-                  <CardHeader className="flex flex-row justify-start items-center gap-2">
-                    <Avatar size="lg">
-                      <AvatarImage src={item.avatar} alt={item.customer} />
-                      <AvatarFallback>A</AvatarFallback>
-                    </Avatar>
-                    <CardTitle className="flex items-center gap-5 whitespace-pre-line">
-                      {item.customer}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>{item.review}</CardContent>
-                </Card>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="hidden" />
-        <CarouselNext className="hidden" />
-      </Carousel>
-    </section>
+      <motion.p className="font-bold text-2xl" variants={fadeInUpVariants}>
+        Nhận Xét Từ Khách Hàng
+      </motion.p>
+      <motion.div variants={fadeInUpVariants}>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugins={[
+            Autoplay({
+              stopOnInteraction: true,
+              stopOnMouseEnter: true,
+              playOnInit: true,
+            }),
+          ]}
+          className="w-full max-w-64"
+        >
+          <CarouselContent>
+            {cardContent.map((item, index) => (
+              <CarouselItem key={index} className="sm:basis-1/2">
+                <div className="p-1 h-full">
+                  <Card
+                    size="sm"
+                    className="w-full h-full rounded-sm shadow-glow"
+                  >
+                    <CardHeader className="flex flex-row justify-start items-center gap-2">
+                      <Avatar size="lg">
+                        <AvatarImage src={item.avatar} alt={item.customer} />
+                        <AvatarFallback>A</AvatarFallback>
+                      </Avatar>
+                      <CardTitle className="flex items-center gap-5 whitespace-pre-line">
+                        {item.customer}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>{item.review}</CardContent>
+                  </Card>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="hidden" />
+          <CarouselNext className="hidden" />
+        </Carousel>
+      </motion.div>
+    </motion.section>
   );
 };
 export default SocialProofSection;

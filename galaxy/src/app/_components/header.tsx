@@ -5,7 +5,7 @@ import { MdOutlineAddShoppingCart } from "react-icons/md";
 
 const Header = () => {
   return (
-    <div className="h-fit w-full flex justify-between items-center py-1 px-2 shadow-soft">
+    <div className="h-fit w-full flex justify-between items-center py-1 px-2 shadow-soft fixed bg-background z-50">
       {/* display logo here */}
       <div>
         <strong className="italic text-brand">Orion</strong>

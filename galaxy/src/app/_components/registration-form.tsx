@@ -23,7 +23,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  fadeInUpVariants,
+  staggerContainerVariants,
+} from "@/lib/motion/animations";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -63,146 +68,161 @@ const RegistrationForm = () => {
     });
   }
   return (
-    <section
-      id="registration"
-      className="h-full w-full flex flex-col justify-center items-center gap-2 px-3 py-5"
-    >
-      <div className="flex flex-col justify-center items-center gap-2 text-center">
-        <p className="font-bold text-2xl">
+    <section id="registration" className="h-full w-full px-3 py-5">
+      <motion.div
+        className="flex flex-col justify-center items-center gap-2 text-center"
+        variants={staggerContainerVariants}
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{
+          once: false,
+          amount: 0.2,
+        }}
+      >
+        <motion.p className="font-bold text-2xl" variants={fadeInUpVariants}>
           Trở Thành Những Người Đầu Tiên Sở Hữu
-        </p>
-        <p className="px-3 text-sm font-normal text-muted-foreground">
+        </motion.p>
+        <motion.p
+          className="px-3 text-sm font-normal text-muted-foreground"
+          variants={fadeInUpVariants}
+        >
           Đăng kí pre-order ngay hôm nay để nhận ưu đãi giảm 15% và gói đặc
           quyền bảo hành VIP 2 năm từ Orion.
-        </p>
-      </div>
-
-      <Card className="w-full max-w-72 rounded-sm drop-shadow-gold">
-        <CardHeader>
-          <CardTitle className="font-bold text-lg text-center">
-            Đăng Ký Đặt Trước
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <form
-            id="form-rhf-demo"
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="h-full w-full"
-          >
-            <FieldGroup>
-              <Controller
-                name="name"
-                control={form.control}
-                render={({ field, fieldState }) => (
-                  <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor="field-name-title">
-                      Họ và Tên
-                    </FieldLabel>
-                    <Input
-                      {...field}
-                      id="field-name-title"
-                      aria-invalid={fieldState.invalid}
-                      placeholder="Họ và tên của bạn"
-                      autoComplete="off"
-                      className="p-2 h-full min-h-11"
-                    />
-                    {fieldState.invalid && (
-                      <FieldError errors={[fieldState.error]} />
+        </motion.p>
+        <motion.div variants={fadeInUpVariants} className="w-full flex justify-center items-center">
+          <Card className="w-full max-w-72 rounded-sm drop-shadow-gold">
+            <CardHeader>
+              <CardTitle className="font-bold text-lg text-center">
+                Đăng Ký Đặt Trước
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form
+                id="form-rhf-demo"
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="h-full w-full"
+              >
+                <FieldGroup>
+                  <Controller
+                    name="name"
+                    control={form.control}
+                    render={({ field, fieldState }) => (
+                      <Field data-invalid={fieldState.invalid}>
+                        <FieldLabel htmlFor="field-name-title">
+                          Họ và Tên
+                        </FieldLabel>
+                        <Input
+                          {...field}
+                          id="field-name-title"
+                          aria-invalid={fieldState.invalid}
+                          placeholder="Họ và tên của bạn"
+                          autoComplete="off"
+                          className="p-2 h-full min-h-11"
+                        />
+                        {fieldState.invalid && (
+                          <FieldError errors={[fieldState.error]} />
+                        )}
+                      </Field>
                     )}
-                  </Field>
-                )}
-              />
-              <Controller
-                name="phone"
-                control={form.control}
-                render={({ field, fieldState }) => (
-                  <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor="field-phone-title">
-                      Số điện thoại
-                    </FieldLabel>
-                    <Input
-                      {...field}
-                      id="field-phone-title"
-                      aria-invalid={fieldState.invalid}
-                      placeholder="Số điện thoại liên hệ"
-                      autoComplete="off"
-                      className="p-2 h-full min-h-11"
-                    />
-                    {fieldState.invalid && (
-                      <FieldError errors={[fieldState.error]} />
+                  />
+                  <Controller
+                    name="phone"
+                    control={form.control}
+                    render={({ field, fieldState }) => (
+                      <Field data-invalid={fieldState.invalid}>
+                        <FieldLabel htmlFor="field-phone-title">
+                          Số điện thoại
+                        </FieldLabel>
+                        <Input
+                          {...field}
+                          id="field-phone-title"
+                          aria-invalid={fieldState.invalid}
+                          placeholder="Số điện thoại liên hệ"
+                          autoComplete="off"
+                          className="p-2 h-full min-h-11"
+                        />
+                        {fieldState.invalid && (
+                          <FieldError errors={[fieldState.error]} />
+                        )}
+                      </Field>
                     )}
-                  </Field>
-                )}
-              />
-              <Controller
-                name="email"
-                control={form.control}
-                render={({ field, fieldState }) => (
-                  <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor="field-email-title">Email</FieldLabel>
-                    <Input
-                      {...field}
-                      id="field-email-title"
-                      aria-invalid={fieldState.invalid}
-                      placeholder="Địa chỉ email để nhận thông báo"
-                      autoComplete="email"
-                      type="email"
-                      className="p-2 h-full min-h-11"
-                    />
-                    {fieldState.invalid && (
-                      <FieldError errors={[fieldState.error]} />
+                  />
+                  <Controller
+                    name="email"
+                    control={form.control}
+                    render={({ field, fieldState }) => (
+                      <Field data-invalid={fieldState.invalid}>
+                        <FieldLabel htmlFor="field-email-title">
+                          Email
+                        </FieldLabel>
+                        <Input
+                          {...field}
+                          id="field-email-title"
+                          aria-invalid={fieldState.invalid}
+                          placeholder="Địa chỉ email để nhận thông báo"
+                          autoComplete="email"
+                          type="email"
+                          className="p-2 h-full min-h-11"
+                        />
+                        {fieldState.invalid && (
+                          <FieldError errors={[fieldState.error]} />
+                        )}
+                      </Field>
                     )}
-                  </Field>
-                )}
-              />
-              <Controller
-                name="size"
-                control={form.control}
-                render={({ field, fieldState }) => (
-                  <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor="field-email-title">
-                      Kích thước vòng nhẫn
-                    </FieldLabel>
-                    <Select value={field.value} onValueChange={field.onChange}>
-                      <SelectTrigger className="p-2 w-full min-h-11">
-                        <SelectValue placeholder="Chọn size" />
-                      </SelectTrigger>
-                      <SelectContent position="popper" sideOffset={4}>
-                        <SelectGroup>
-                          <SelectLabel>Size nhẫn</SelectLabel>
-                          {Array.from({ length: 8 }, (_, i) => (
-                            <SelectItem key={i} value={(i + 6).toString()}>
-                              Size {i + 6}
-                            </SelectItem>
-                          ))}
-                        </SelectGroup>
-                      </SelectContent>
-                    </Select>
-                    {fieldState.invalid && (
-                      <FieldError errors={[fieldState.error]} />
+                  />
+                  <Controller
+                    name="size"
+                    control={form.control}
+                    render={({ field, fieldState }) => (
+                      <Field data-invalid={fieldState.invalid}>
+                        <FieldLabel htmlFor="field-email-title">
+                          Kích thước vòng nhẫn
+                        </FieldLabel>
+                        <Select
+                          value={field.value}
+                          onValueChange={field.onChange}
+                        >
+                          <SelectTrigger className="p-2 w-full min-h-11">
+                            <SelectValue placeholder="Chọn size" />
+                          </SelectTrigger>
+                          <SelectContent position="popper" sideOffset={4}>
+                            <SelectGroup>
+                              <SelectLabel>Size nhẫn</SelectLabel>
+                              {Array.from({ length: 8 }, (_, i) => (
+                                <SelectItem key={i} value={(i + 6).toString()}>
+                                  Size {i + 6}
+                                </SelectItem>
+                              ))}
+                            </SelectGroup>
+                          </SelectContent>
+                        </Select>
+                        {fieldState.invalid && (
+                          <FieldError errors={[fieldState.error]} />
+                        )}
+                      </Field>
                     )}
-                  </Field>
-                )}
-              />
-            </FieldGroup>
-          </form>
-        </CardContent>
-        <CardFooter>
-          <Field
-            orientation="horizontal"
-            className="w-full flex flex-row justify-center items-center gap-3"
-          >
-            <Button
-              type="submit"
-              size={"lg"}
-              form="form-rhf-demo"
-              className="btn-gold px-1 py-2 min-h-11 rounded-full w-4/5"
-            >
-              Đăng ký ngay
-            </Button>
-          </Field>
-        </CardFooter>
-      </Card>
+                  />
+                </FieldGroup>
+              </form>
+            </CardContent>
+            <CardFooter>
+              <Field
+                orientation="horizontal"
+                className="w-full flex flex-row justify-center items-center gap-3"
+              >
+                <Button
+                  type="submit"
+                  size={"lg"}
+                  form="form-rhf-demo"
+                  className="btn-gold px-1 py-2 min-h-11 rounded-full w-4/5"
+                >
+                  Đăng ký ngay
+                </Button>
+              </Field>
+            </CardFooter>
+          </Card>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
