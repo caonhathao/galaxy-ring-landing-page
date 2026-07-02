@@ -1,3 +1,4 @@
+"use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Carousel,
@@ -6,6 +7,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import {
+  fadeInUpVariants,
+  staggerContainerVariants,
+} from "@/lib/motion/animations";
+import { motion } from "framer-motion";
 import { MdOutlineEnergySavingsLeaf, MdOutlineTouchApp } from "react-icons/md";
 import { SiGoogleassistant } from "react-icons/si";
 
@@ -29,41 +35,57 @@ const cardContent = [
 
 const FeatureSection = () => {
   return (
-    <section id="features-section" className="h-full w-full flex flex-col justify-center items-center gap-2 px-3 py-5 ">
-      <div>
-        <p className="font-bold text-2xl text-center">Tuyệt Tác Công Nghệ Trên Ngón Tay Bạn</p>
-      </div>
-      <Carousel
-        opts={{
-          align: "start",
-          loop: true,
-          duration: 2,
+    <section id="features-section" className="h-full w-full px-3 py-5 ">
+      <motion.div
+        className="flex flex-col justify-center items-center gap-2"
+        variants={staggerContainerVariants}
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{
+          once: false,
+          amount: 0.2,
         }}
-        className="w-full max-w-66"
       >
-        <CarouselContent>
-          {cardContent.map((item, index) => (
-            <CarouselItem key={index} className="sm:basis-1/2">
-              <div className="p-1 h-full">
-                <Card
-                  size="sm"
-                  className="w-full h-full rounded-md shadow-glow"
-                >
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-5">
-                      <item.icon size={20}/>
-                      {item.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>{item.desc}</CardContent>
-                </Card>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
+        <motion.p
+          className="font-bold text-2xl text-center"
+          variants={fadeInUpVariants}
+        >
+          Tuyệt Tác Công Nghệ Trên Ngón Tay Bạn
+        </motion.p>
+        <motion.div variants={fadeInUpVariants}>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+              duration: 2,
+            }}
+            className="w-full max-w-66"
+          >
+            <CarouselContent>
+              {cardContent.map((item, index) => (
+                <CarouselItem key={index} className="sm:basis-1/2">
+                  <div className="p-1 h-full">
+                    <Card
+                      size="sm"
+                      className="w-full h-full rounded-md shadow-glow"
+                    >
+                      <CardHeader>
+                        <CardTitle className="flex items-center gap-5">
+                          <item.icon size={20} />
+                          {item.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>{item.desc}</CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

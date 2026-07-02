@@ -1,9 +1,14 @@
-import Image from "next/image";
+"use client";
 import RingDen from "../../../public/img/samsung-galaxy-ring-den-1.jpg";
 import RingDeo from "../../../public/img/galaxy-ring-silm1-pc.jpg";
 import RingNuoc from "../../../public/img/Galaxy-Ring-specifications-and-information.webp";
 import RingHealth from "../../../public/img/galaxy-ring-samsung-health-endframe-mo.jpg";
-import { SkeletonImage } from "@/components/custom/skeleton-img";
+import SkeletonImage from "@/components/custom/skeleton-img";
+import { motion } from "framer-motion";
+import {
+  fadeInUpVariants,
+  staggerContainerVariants,
+} from "@/lib/motion/animations";
 
 const specContent = [
   {
@@ -35,24 +40,36 @@ const SpecSection = () => {
       className="h-full w-full flex flex-col justify-center items-center gap-2"
     >
       {specContent.map((item, index) => (
-        <section
+        <motion.section
           key={"spec-section" + index}
           className={`${index % 2 == 0 ? "bg-card" : "bg-accent"}  px-3 py-5`}
+          variants={staggerContainerVariants}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{
+            once: false,
+            amount: 0.2,
+          }}
         >
-          <div className="flex flex-col justify-center items-center gap-2 text-center">
+          <motion.div
+            className="flex flex-col justify-center items-center gap-2 text-center"
+            variants={fadeInUpVariants}
+          >
             <p className="font-bold text-2xl whitespace-pre-line">
               {item.title}
             </p>
             <p className="px-3 text-sm font-normal text-muted-foreground">
               {item.desc}
             </p>
-          </div>
-          <SkeletonImage
-            className="w-full h-auto rounded-sm mt-2"
-            src={item.image}
-            alt="spec-image"
-          />
-        </section>
+          </motion.div>
+          <motion.div variants={fadeInUpVariants}>
+            <SkeletonImage
+              className="w-full h-auto rounded-sm mt-2"
+              src={item.image}
+              alt="spec-image"
+            />
+          </motion.div>
+        </motion.section>
       ))}
     </div>
   );
