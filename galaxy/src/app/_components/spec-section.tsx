@@ -3,6 +3,7 @@ import RingDen from "../../../public/img/samsung-galaxy-ring-den-1.jpg";
 import RingDeo from "../../../public/img/galaxy-ring-silm1-pc.jpg";
 import RingNuoc from "../../../public/img/Galaxy-Ring-specifications-and-information.webp";
 import RingHealth from "../../../public/img/galaxy-ring-samsung-health-endframe-mo.jpg";
+import { SkeletonImage } from "@/components/custom/skeleton-img";
 
 const specContent = [
   {
@@ -21,32 +22,35 @@ const specContent = [
     image: RingNuoc,
   },
   {
-    title: "Theo dõi thông tin sức khỏe ở bất cứ đâu",
-    desc: "Với khả năng kết nối Bluetooth 5.3, Orion Ring có thể kết nối với điện thoại của bạn ở khoảng cách lên đến 100 mét. Điều này có nghĩa là bạn có thể theo dõi thông tin sức khỏe của mình mà không cần phải mang điện thoại bên mình.",
+    title: "Theo dõi thông tin sức khỏe thông minh",
+    desc: "Với khả năng kết nối Bluetooth 5.3 và tích hợp AI, Orion Ring có thể kết nối với điện thoại của bạn ở khoảng cách lên đến 100 mét. Điều này có nghĩa là bạn có thể theo dõi thông tin sức khỏe của mình mà không cần phải mang điện thoại bên mình.",
     image: RingHealth,
   },
 ];
 
 const SpecSection = () => {
   return (
-    <div className="h-full w-full flex flex-col justify-center items-center gap-2 my-3">
+    <div
+      id="spec"
+      className="h-full w-full flex flex-col justify-center items-center gap-2"
+    >
       {specContent.map((item, index) => (
         <section
           key={"spec-section" + index}
-          className={`${index % 2 == 0 ? "bg-card" : "bg-accent"} p-2`}
+          className={`${index % 2 == 0 ? "bg-card" : "bg-accent"}  px-3 py-5`}
         >
           <div className="flex flex-col justify-center items-center gap-2 text-center">
             <p className="font-bold text-2xl whitespace-pre-line">
               {item.title}
             </p>
-            <p className="px-3 text-sm font-normal text-zinc-500">
+            <p className="px-3 text-sm font-normal text-muted-foreground">
               {item.desc}
             </p>
           </div>
-          <Image
+          <SkeletonImage
+            className="w-full h-auto rounded-sm mt-2"
             src={item.image}
             alt="spec-image"
-            className="rounded-sm mt-2"
           />
         </section>
       ))}

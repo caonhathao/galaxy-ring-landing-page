@@ -29,9 +29,9 @@ const cardContent = [
 
 const FeatureSection = () => {
   return (
-    <section className="h-full w-full flex flex-col justify-center items-center gap-2 my-3 p-2">
+    <section id="features-section" className="h-full w-full flex flex-col justify-center items-center gap-2 px-3 py-5 ">
       <div>
-        <p className="font-bold">Tuyệt Tác Công Nghệ Trên Ngón Tay Bạn</p>
+        <p className="font-bold text-2xl text-center">Tuyệt Tác Công Nghệ Trên Ngón Tay Bạn</p>
       </div>
       <Carousel
         opts={{
@@ -47,7 +47,7 @@ const FeatureSection = () => {
               <div className="p-1 h-full">
                 <Card
                   size="sm"
-                  className="w-full h-full rounded-md drop-shadow-gold"
+                  className="w-full h-full rounded-md shadow-glow"
                 >
                   <CardHeader>
                     <CardTitle className="flex items-center gap-5">

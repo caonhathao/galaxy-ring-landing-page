@@ -1,6 +1,12 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   FieldGroup,
   Field,
@@ -19,8 +25,6 @@ import {
 } from "@/components/ui/select";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
-import { FaCheck } from "react-icons/fa6";
-import { RiResetLeftLine } from "react-icons/ri";
 import { toast } from "sonner";
 import { z } from "zod";
 
@@ -59,12 +63,15 @@ const RegistrationForm = () => {
     });
   }
   return (
-    <section className="h-full w-full flex flex-col justify-center items-center gap-2 my-3 p-2">
+    <section
+      id="registration"
+      className="h-full w-full flex flex-col justify-center items-center gap-2 px-3 py-5"
+    >
       <div className="flex flex-col justify-center items-center gap-2 text-center">
         <p className="font-bold text-2xl">
           Trở Thành Những Người Đầu Tiên Sở Hữu
         </p>
-        <p className="px-3 text-sm font-normal text-zinc-500">
+        <p className="px-3 text-sm font-normal text-muted-foreground">
           Đăng kí pre-order ngay hôm nay để nhận ưu đãi giảm 15% và gói đặc
           quyền bảo hành VIP 2 năm từ Orion.
         </p>
@@ -97,7 +104,7 @@ const RegistrationForm = () => {
                       aria-invalid={fieldState.invalid}
                       placeholder="Họ và tên của bạn"
                       autoComplete="off"
-                      className="p-2 h-full"
+                      className="p-2 h-full min-h-11"
                     />
                     {fieldState.invalid && (
                       <FieldError errors={[fieldState.error]} />
@@ -119,7 +126,7 @@ const RegistrationForm = () => {
                       aria-invalid={fieldState.invalid}
                       placeholder="Số điện thoại liên hệ"
                       autoComplete="off"
-                      className="p-2 h-full"
+                      className="p-2 h-full min-h-11"
                     />
                     {fieldState.invalid && (
                       <FieldError errors={[fieldState.error]} />
@@ -140,7 +147,7 @@ const RegistrationForm = () => {
                       placeholder="Địa chỉ email để nhận thông báo"
                       autoComplete="email"
                       type="email"
-                      className="p-2 h-full"
+                      className="p-2 h-full min-h-11"
                     />
                     {fieldState.invalid && (
                       <FieldError errors={[fieldState.error]} />
@@ -151,17 +158,16 @@ const RegistrationForm = () => {
               <Controller
                 name="size"
                 control={form.control}
-
                 render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
                     <FieldLabel htmlFor="field-email-title">
                       Kích thước vòng nhẫn
                     </FieldLabel>
                     <Select value={field.value} onValueChange={field.onChange}>
-                      <SelectTrigger  className="p-4 h-full w-full">
+                      <SelectTrigger className="p-2 w-full min-h-11">
                         <SelectValue placeholder="Chọn size" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent position="popper" sideOffset={4}>
                         <SelectGroup>
                           <SelectLabel>Size nhẫn</SelectLabel>
                           {Array.from({ length: 8 }, (_, i) => (
@@ -182,17 +188,20 @@ const RegistrationForm = () => {
           </form>
         </CardContent>
         <CardFooter>
-        <Field orientation="horizontal">
-          <Button type="button" variant="outline" onClick={() => form.reset()}>
-            <RiResetLeftLine />
-            Xóa
-          </Button>
-          <Button type="submit" form="form-rhf-demo" className="btn-gold">
-            <FaCheck />
-            Đăng kí
-          </Button>
-        </Field>
-      </CardFooter>
+          <Field
+            orientation="horizontal"
+            className="w-full flex flex-row justify-center items-center gap-3"
+          >
+            <Button
+              type="submit"
+              size={"lg"}
+              form="form-rhf-demo"
+              className="btn-gold px-1 py-2 min-h-11 rounded-full w-4/5"
+            >
+              Đăng ký ngay
+            </Button>
+          </Field>
+        </CardFooter>
       </Card>
     </section>
   );

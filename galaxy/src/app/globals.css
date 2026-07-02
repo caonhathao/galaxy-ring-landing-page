@@ -380,12 +380,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--background);
-    background-image:
-      radial-gradient(
-        circle at top,
-        color-mix(in srgb, var(--gold) 8%, transparent),
-        transparent 45%
-      ),
+    background-image: radial-gradient(
+        120% 80% at 50% 0%,
+        color-mix(in srgb, var(--gold) 10%, transparent),
+        transparent 70%
+      )
       linear-gradient(180deg, var(--hero-start), var(--hero-end));
     min-height: 100vh;
   }

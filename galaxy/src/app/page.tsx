@@ -8,7 +8,7 @@ import SpecSection from "./_components/spec-section";
 
 export default function Home() {
   return (
-    <div className="h-full w-screen flex flex-col">
+    <div className="h-full w-full flex flex-col">
       <Header />
       <HeroSection />
       <FeatureSection />
