@@ -67,8 +67,6 @@ const SpecSection = () => {
               className={`w-full h-auto aspect-square ${index % 2 == 0 ? "bg-card" : "bg-accent"} rounded-sm mt-2 flex justify-center items-center`}
               src={item.image}
               alt="spec-image"
-              loading="lazy"
-            
             />
           </m.div>
         </m.section>
