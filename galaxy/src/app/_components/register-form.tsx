@@ -36,8 +36,12 @@ import {
 } from "@/lib/schemas/register-schema";
 import { registerUser } from "../actions/register-server";
 import { toast } from "sonner";
+import { useTransition } from "react";
+import { FaRotate } from "react-icons/fa6";
 
 const RegisterForm = () => {
+  const [isPending, startTransition] = useTransition();
+
   const form = useForm<RegisterFormData>({
     resolver: zodResolver(registerFormSchema),
     defaultValues: {
@@ -49,19 +53,21 @@ const RegisterForm = () => {
   });
 
   async function onSubmit(data: RegisterFormData) {
-    const res = await registerUser(data);
-    console.log(res);
-    if (res.result === "success") {
-      toast.success("Đăng kí thành công", {
-        description: "Đã ghi nhận thông tin của bạn!",
-        position: "top-right",
-      });
-    } else {
-      toast.error("Đăng kí thất bại", {
-        description: res.error,
-        position: "top-right",
-      });
-    }
+    startTransition(async () => {
+      const res = await registerUser(data);
+      console.log(res);
+      if (res.result === "success") {
+        toast.success("Đăng kí thành công", {
+          description: "Đã ghi nhận thông tin của bạn!",
+          position: "top-right",
+        });
+      } else {
+        toast.error("Đăng kí thất bại", {
+          description: res.error,
+          position: "top-right",
+        });
+      }
+    });
   }
   return (
     <m.div
@@ -217,6 +223,11 @@ const RegisterForm = () => {
                 className="btn-gold px-1 py-2 lg:p-5 min-h-11 rounded-full w-4/5 md:w-1/2 lg:w-auto hover:opacity-90"
               >
                 Đăng ký ngay
+                {isPending ? (
+                  <div className="animate-spin">
+                    <FaRotate />
+                  </div>
+                ) : null}
               </Button>
             </Field>
           </CardFooter>
