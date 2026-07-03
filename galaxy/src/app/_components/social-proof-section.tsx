@@ -37,7 +37,7 @@ const cardContent = [
     customer: "Hồng Phấn \n(Giáo viên về hưu)",
     avatar: "",
     review:
-      "Chiến nhẫn này giúp tôi theo dõi sức khỏe và nhịp tim của mình một cách dễ dàng. Tôi cảm thấy yên tâm hơn khi đi dạo hay tập thể dục.",
+      "Chiến nhẫn này giúp tôi theo dõi sức khỏe và nhịp tim của mình một cách dễ dàng. Tôi cảm thấy yên tâm hơn khi đi dạo hay tập thể dục. Orion đã thật sự tạo ra được một sản phẩm thiết thực, hữu ích trong việc theo dõi sức khỏe người dùng.",
   },
 ];
 
@@ -45,7 +45,7 @@ const SocialProofSection = () => {
   return (
     <motion.section
       id="social-proof"
-      className="h-full w-full flex flex-col justify-center items-center gap-2 px-2 py-5 bg-card"
+      className="h-full w-full flex flex-col justify-center items-center gap-2 px-2 py-5 mt-5 bg-card"
       variants={staggerContainerVariants}
       initial="offscreen"
       whileInView="onscreen"
@@ -54,9 +54,12 @@ const SocialProofSection = () => {
         amount: 0.2,
       }}
     >
-      <motion.p className="font-bold text-2xl" variants={fadeInUpVariants}>
+      <motion.h2
+        className="font-bold text-2xl md:text-3xl"
+        variants={fadeInUpVariants}
+      >
         Nhận Xét Từ Khách Hàng
-      </motion.p>
+      </motion.h2>
       <motion.div variants={fadeInUpVariants}>
         <Carousel
           opts={{
@@ -70,16 +73,13 @@ const SocialProofSection = () => {
               playOnInit: true,
             }),
           ]}
-          className="w-full max-w-64"
+          className="w-full max-w-64 sm:max-w-4/5 mx-auto"
         >
           <CarouselContent>
             {cardContent.map((item, index) => (
               <CarouselItem key={index} className="sm:basis-1/2">
                 <div className="p-1 h-full">
-                  <Card
-                    size="sm"
-                    className="w-full h-full rounded-sm shadow-glow"
-                  >
+                  <Card size="sm" className="w-full h-full rounded-sm">
                     <CardHeader className="flex flex-row justify-start items-center gap-2">
                       <Avatar size="lg">
                         <AvatarImage src={item.avatar} alt={item.customer} />
@@ -89,14 +89,16 @@ const SocialProofSection = () => {
                         {item.customer}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent>{item.review}</CardContent>
+                    <CardContent className="md:leading-7 italic">
+                      &quot;{item.review}&quot;
+                    </CardContent>
                   </Card>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden" />
-          <CarouselNext className="hidden" />
+          <CarouselPrevious className="hidden md:block" />
+          <CarouselNext className="hidden md:block" />
         </Carousel>
       </motion.div>
     </motion.section>

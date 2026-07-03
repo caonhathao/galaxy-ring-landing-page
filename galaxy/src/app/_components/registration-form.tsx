@@ -68,9 +68,12 @@ const RegistrationForm = () => {
     });
   }
   return (
-    <section id="registration" className="h-full w-full px-3 py-5">
+    <section
+      id="registration"
+      className="h-full w-full px-3 py-5 mt-5 md:grid md:grid-cols-2 md:grid-rows-1 md:gap-2"
+    >
       <motion.div
-        className="flex flex-col justify-center items-center gap-2 text-center"
+        className="py-2 flex flex-col justify-center items-center gap-2 text-center md:text-left"
         variants={staggerContainerVariants}
         initial="offscreen"
         whileInView="onscreen"
@@ -79,18 +82,37 @@ const RegistrationForm = () => {
           amount: 0.2,
         }}
       >
-        <motion.p className="font-bold text-2xl" variants={fadeInUpVariants}>
+        <motion.h2
+          className="font-bold text-2xl md:text-3xl md:text-left"
+          variants={fadeInUpVariants}
+        >
           Trở Thành Những Người Đầu Tiên Sở Hữu
-        </motion.p>
+        </motion.h2>
         <motion.p
-          className="px-3 text-sm font-normal text-muted-foreground"
+          className="pl-3 pr-3 md:pr-5 md:pl-0  text-sm font-normal text-muted-foreground md:leading-7 md:text-left"
           variants={fadeInUpVariants}
         >
           Đăng kí pre-order ngay hôm nay để nhận ưu đãi giảm 15% và gói đặc
           quyền bảo hành VIP 2 năm từ Orion.
         </motion.p>
-        <motion.div variants={fadeInUpVariants} className="w-full flex justify-center items-center">
-          <Card className="w-full max-w-72 rounded-sm drop-shadow-gold">
+      </motion.div>
+
+      {/* display form here */}
+      <motion.div
+        variants={staggerContainerVariants}
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{
+          once: false,
+          amount: 0.2,
+        }}
+        className="py-2"
+      >
+        <motion.div
+          variants={fadeInUpVariants}
+          className="w-full flex justify-center items-center"
+        >
+          <Card className="w-full max-w-72 md:max-w-lg rounded-sm drop-shadow-gold">
             <CardHeader>
               <CardTitle className="font-bold text-lg text-center">
                 Đăng Ký Đặt Trước
@@ -102,7 +124,7 @@ const RegistrationForm = () => {
                 onSubmit={form.handleSubmit(onSubmit)}
                 className="h-full w-full"
               >
-                <FieldGroup>
+                <FieldGroup className="md:grid md:grid-cols-2 md:grid-rows-1 md:gap-3">
                   <Controller
                     name="name"
                     control={form.control}
@@ -214,7 +236,7 @@ const RegistrationForm = () => {
                   type="submit"
                   size={"lg"}
                   form="form-rhf-demo"
-                  className="btn-gold px-1 py-2 min-h-11 rounded-full w-4/5"
+                  className="btn-gold px-1 py-2 min-h-11 rounded-full w-4/5 md:w-1/2"
                 >
                   Đăng ký ngay
                 </Button>

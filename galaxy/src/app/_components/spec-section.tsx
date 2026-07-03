@@ -36,13 +36,13 @@ const specContent = [
 const SpecSection = () => {
   return (
     <div
-      id="spec"
+      id="spec-section"
       className="h-full w-full flex flex-col justify-center items-center gap-2"
     >
       {specContent.map((item, index) => (
         <motion.section
           key={"spec-section" + index}
-          className={`${index % 2 == 0 ? "bg-card" : "bg-accent"}  px-3 py-5`}
+          className={`${index % 2 == 0 ? "bg-card" : "bg-accent"} px-3 py-5 w-full md:grid md:grid-cols-2 md:grid-rows-1 md:gap-5`}
           variants={staggerContainerVariants}
           initial="offscreen"
           whileInView="onscreen"
@@ -52,19 +52,19 @@ const SpecSection = () => {
           }}
         >
           <motion.div
-            className="flex flex-col justify-center items-center gap-2 text-center"
+            className={`flex flex-col justify-center items-center gap-2 text-center md:text-left ${index % 2 == 0 ? "order-1" : "order-2"}`}
             variants={fadeInUpVariants}
           >
-            <p className="font-bold text-2xl whitespace-pre-line">
+            <h2 className="w-full font-bold text-2xl md:text-3xl whitespace-pre-line">
               {item.title}
-            </p>
-            <p className="px-3 text-sm font-normal text-muted-foreground">
+            </h2>
+            <p className="pl-3 pr-3 md:pr-5 md:pl-0 text-sm font-normal text-muted-foreground md:leading-7">
               {item.desc}
             </p>
           </motion.div>
-          <motion.div variants={fadeInUpVariants}>
+          <motion.div variants={fadeInUpVariants} className={`${index % 2 == 0 ? "order-2" : "order-1"}`}>
             <SkeletonImage
-              className="w-full h-auto rounded-sm mt-2"
+              className="w-full h-auto rounded-sm mt-2 flex justify-center items-center"
               src={item.image}
               alt="spec-image"
             />

@@ -35,7 +35,7 @@ const cardContent = [
 
 const FeatureSection = () => {
   return (
-    <section id="features-section" className="h-full w-full px-3 py-5 ">
+    <section id="features-section" className="h-full w-full px-3 py-5 mt-5">
       <motion.div
         className="flex flex-col justify-center items-center gap-2"
         variants={staggerContainerVariants}
@@ -46,12 +46,12 @@ const FeatureSection = () => {
           amount: 0.2,
         }}
       >
-        <motion.p
-          className="font-bold text-2xl text-center"
+        <motion.h2
+          className="font-bold text-2xl md:text-3xl text-center"
           variants={fadeInUpVariants}
         >
           Tuyệt Tác Công Nghệ Trên Ngón Tay Bạn
-        </motion.p>
+        </motion.h2>
         <motion.div variants={fadeInUpVariants}>
           <Carousel
             opts={{
@@ -59,7 +59,7 @@ const FeatureSection = () => {
               loop: true,
               duration: 2,
             }}
-            className="w-full max-w-66"
+            className="w-full max-w-66 md:max-w-2xl"
           >
             <CarouselContent>
               {cardContent.map((item, index) => (
@@ -67,7 +67,7 @@ const FeatureSection = () => {
                   <div className="p-1 h-full">
                     <Card
                       size="sm"
-                      className="w-full h-full rounded-md shadow-glow"
+                      className="w-full h-full rounded-md "
                     >
                       <CardHeader>
                         <CardTitle className="flex items-center gap-5">

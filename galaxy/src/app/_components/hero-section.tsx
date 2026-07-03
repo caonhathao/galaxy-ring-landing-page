@@ -13,10 +13,10 @@ const HeroSection = () => {
   return (
     <section
       id="hero-section"
-      className="h-full w-full flex flex-col justify-center items-center gap-2 px-3 py-5 mt-10"
+      className="h-full w-full grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1 justify-center items-center gap-2 px-3 py-5 mt-10"
     >
       <motion.div
-        className="flex flex-col justify-center items-center gap-2 text-center font-bold"
+        className="flex flex-col justify-center items-center gap-2 text-center md:text-left font-bold md:col-span-1"
         variants={staggerContainerVariants}
         initial="offscreen"
         whileInView="onscreen"
@@ -25,18 +25,18 @@ const HeroSection = () => {
           amount: 0.2,
         }}
       >
-        <motion.p className="text-brand text-2xl" variants={fadeInUpVariants}>
+        <motion.h1 className="w-full text-brand text-2xl md:text-3xl" variants={fadeInUpVariants}>
           Orion
-        </motion.p>
+        </motion.h1>
 
-        <motion.p className="text-2xl" variants={fadeInUpVariants}>
+        <motion.h2 className="text-2xl md:text-3xl" variants={fadeInUpVariants}>
           Không chỉ là một chiếc nhẫn
           <br />
           Vĩnh hằng. Vô tận. Vượt mọi giới hạn.
-        </motion.p>
+        </motion.h2>
 
         <motion.p
-          className="px-3 text-sm font-normal text-muted-foreground"
+          className="pl-3 pr-3 md:pr-5 md:pl-0 text-sm md:text-lg md:leading-7 font-normal text-muted-foreground"
           variants={fadeInUpVariants}
         >
           Chiếc nhẫn thông minh mỏng nhẹ nhất thế giới tích hợp AI sinh trắc học
@@ -48,7 +48,7 @@ const HeroSection = () => {
           variants={fadeInUpVariants}
           className="w-full flex justify-center mt-2"
         >
-          <Button className="min-h-11 rounded-full py-2 btn-gold w-4/5">
+          <Button className="min-h-11 rounded-full py-2 btn-gold w-4/5 md:max-w-xs">
             Đặt trước ngay
             <FaArrowRightLong />
           </Button>
@@ -66,7 +66,7 @@ const HeroSection = () => {
         }}
       >
         <SkeletonImage
-          className="w-full h-60 rounded-md mt-4"
+          className="w-full h-60 md:h-80 rounded-md mt-4"
           variants={fadeInUpVariants}
           fill
           loading="eager"
