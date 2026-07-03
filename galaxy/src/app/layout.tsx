@@ -8,7 +8,7 @@ const inter = Inter({
   subsets: ["latin"],
   display: "optional",
   variable: "--font-sans",
-  weight: ["400", "700"],
+  axes: ["opsz"],
 });
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://orion-ring-default.vercel.app";

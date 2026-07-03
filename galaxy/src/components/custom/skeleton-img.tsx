@@ -8,11 +8,13 @@ import { m, Variants } from "framer-motion";
 interface ISkeletonImageProps extends ComponentProps<typeof Image> {
   className: string;
   variants?: Variants;
+  useSkeleton?: boolean;
 }
 
 const SkeletonImage = ({
   className,
   variants,
+  useSkeleton = true,
   ...props
 }: ISkeletonImageProps) => {
   const [loaded, setLoaded] = useState(false);
@@ -22,7 +24,9 @@ const SkeletonImage = ({
       className={cn("relative overflow-hidden", className)}
       variants={variants}
     >
-      {!loaded && <Skeleton className="h-full w-full z-10" />}
+      {!loaded && useSkeleton ? (
+        <Skeleton className="h-full w-full z-10" />
+      ) : null}
 
       <Image
         {...props}
