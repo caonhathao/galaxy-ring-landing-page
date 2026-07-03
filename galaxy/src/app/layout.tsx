@@ -15,11 +15,30 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://orion-ring-default.vercel.app";
 export const metadata: Metadata = {
   title: "ORION RING",
   description:
-    "Khám phá Orion Ring, chiếc nhẫn thông minh mỏng nhẹ nhất thế giới tích hợp AI sinh trắc học, theo dõi sức khỏe chủ động 24/7.",
+    "Trải nghiệm chiếc nhẫn thông minh mỏng nhẹ nhất thế giới tích hợp AI sinh trắc học.",
+
+  openGraph: {
+    title: "Orion Ring - Tuyệt Tác Nhẫn Thông Minh Thế Hệ Mới",
+    description:
+      "Trải nghiệm chiếc nhẫn thông minh mỏng nhẹ nhất thế giới tích hợp AI sinh trắc học.",
+    url: siteUrl,
+    siteName: "Orion Ring Việt Nam",
+    images: [
+      {
+        url: `${siteUrl}/images/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Nhẫn thông minh Orion Ring phiên bản công nghệ cao cấp",
+      },
+    ],
+    locale: "vi_VN",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

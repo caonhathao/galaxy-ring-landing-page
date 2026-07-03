@@ -7,9 +7,9 @@ const Footer = () => {
   return (
     <div
       id="footer"
-      className=" w-full px-2 py-1 md:px-8 border-t shadow mt-5 bg-card"
+      className=" w-full px-2 py-5 md:px-8 border-t shadow bg-card flex justify-center items-center"
     >
-      <div className="w-full max-w-sm md:max-w-full flex flex-col md:flex-row justify-center md:justify-between items-center gap-3">
+      <div className="w-full max-w-sm md:max-w-full lg:max-w-7xl flex flex-col justify-center items-center md:flex-row md:justify-between gap-3">
         <div className="w-full text-sm text-muted-foreground">
           <p>
             @ 2026 ORION Project. <br />

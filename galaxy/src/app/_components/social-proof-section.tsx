@@ -45,7 +45,7 @@ const SocialProofSection = () => {
   return (
     <motion.section
       id="social-proof"
-      className="h-full w-full flex flex-col justify-center items-center gap-2 px-2 py-5 mt-5 bg-card"
+      className="h-full w-full lg:max-w-7xl lg:mx-auto flex flex-col justify-center items-center gap-2 px-2 py-10 bg-card"
       variants={staggerContainerVariants}
       initial="offscreen"
       whileInView="onscreen"
@@ -85,11 +85,11 @@ const SocialProofSection = () => {
                         <AvatarImage src={item.avatar} alt={item.customer} />
                         <AvatarFallback>A</AvatarFallback>
                       </Avatar>
-                      <CardTitle className="flex items-center gap-5 whitespace-pre-line">
+                      <CardTitle className="flex items-center gap-5 whitespace-pre-line lg:text-lg">
                         {item.customer}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="md:leading-7 italic">
+                    <CardContent className="md:leading-7 italic lg:text-lg">
                       &quot;{item.review}&quot;
                     </CardContent>
                   </Card>
