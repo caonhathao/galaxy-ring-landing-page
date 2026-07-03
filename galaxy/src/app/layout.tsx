@@ -34,6 +34,10 @@ export const metadata: Metadata = {
     locale: "vi_VN",
     type: "website",
   },
+  other: {
+    "link:image-preload":
+      '<link rel="preload" as="image" href="/img/samsung-galaxy-ring-vang.webp" fetchpriority="high" />',
+  },
 };
 
 export default function RootLayout({
