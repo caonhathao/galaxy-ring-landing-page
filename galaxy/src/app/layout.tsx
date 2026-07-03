@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "Orion Ring Việt Nam",
     images: [
       {
-        url: `${siteUrl}/images/og-image.jpg`,
+        url: `${siteUrl}/images/og-image.webp`,
         width: 1200,
         height: 630,
         alt: "Nhẫn thông minh Orion Ring phiên bản công nghệ cao cấp",
