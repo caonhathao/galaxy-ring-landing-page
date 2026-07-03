@@ -39,6 +39,7 @@ const HeroSection = () => {
         <SkeletonImage
           className="w-full h-60 md:h-90 aspect-square bg-muted-foreground rounded-md mt-4 lg:mt-0"
           variants={fadeInUpVariants}
+           useSkeleton={false}
           fill
           src={Vang}
           sizes="(max-width: 768px) 100vw, 50vw"

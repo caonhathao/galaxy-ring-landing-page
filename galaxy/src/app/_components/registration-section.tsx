@@ -4,7 +4,8 @@ import {
   staggerContainerVariants,
 } from "@/lib/motion/animations";
 import { m } from "framer-motion";
-import RegisterForm from "./register-form";
+import dynamic from "next/dynamic";
+const RegisterForm =dynamic(()=>import("./register-form"))
 
 const RegistrationForm = () => {
 
