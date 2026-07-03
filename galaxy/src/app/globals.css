@@ -36,32 +36,6 @@
   --color-ring: var(--ring);
 
   /* ==============================
-     Sidebar
-  ============================== */
-
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-
-  /* ==============================
-     Charts
-  ============================== */
-
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-
-  /* ==============================
      Custom
   ============================== */
 
@@ -171,22 +145,6 @@
   --radius: 1.4rem;
 
   /* ==============================
-     Sidebar
-  ============================== */
-
-  --sidebar: #fafafa;
-  --sidebar-foreground: #111;
-
-  --sidebar-primary: var(--primary);
-  --sidebar-primary-foreground: #fff;
-
-  --sidebar-accent: #f2f2f2;
-  --sidebar-accent-foreground: #111;
-
-  --sidebar-border: var(--border);
-  --sidebar-ring: var(--ring);
-
-  /* ==============================
      Hero
   ============================== */
 
@@ -282,32 +240,6 @@
   --ring: #d4b27a;
 
   /* ==============================
-     Charts
-  ============================== */
-
-  --chart-1: #d4b27a;
-  --chart-2: #7cb7ff;
-  --chart-3: #72d2b2;
-  --chart-4: #f3b562;
-  --chart-5: #b49cff;
-
-  /* ==============================
-     Sidebar
-  ============================== */
-
-  --sidebar: #09090b;
-  --sidebar-foreground: #f5f5f5;
-
-  --sidebar-primary: var(--primary);
-  --sidebar-primary-foreground: #111111;
-
-  --sidebar-accent: #151518;
-  --sidebar-accent-foreground: #ffffff;
-
-  --sidebar-border: rgba(255, 255, 255, 0.06);
-  --sidebar-ring: var(--ring);
-
-  /* ==============================
      Hero
   ============================== */
 
@@ -357,8 +289,6 @@
   --shadow-soft: 0 12px 32px rgba(0, 0, 0, 0.45);
 
   --shadow-card: 0 30px 90px rgba(0, 0, 0, 0.7);
-
-  --shadow-glow: 0 0 90px rgba(212, 178, 122, 0.08);
 }
 
 /* =======================================================
@@ -376,9 +306,6 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     background-color: var(--background);
     background-image: radial-gradient(
         120% 80% at 50% 0%,
@@ -409,36 +336,10 @@
 ======================================================= */
 
 @layer utilities {
-  /* ---------- Glass ---------- */
-
-  .glass {
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-  }
-
-  .glass-card {
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(22px);
-    -webkit-backdrop-filter: blur(22px);
-
-    box-shadow: var(--shadow-card);
-  }
 
   /* ---------- Shadows ---------- */
-
   .shadow-soft {
     box-shadow: var(--shadow-soft);
-  }
-
-  .shadow-card {
-    box-shadow: var(--shadow-card);
-  }
-
-  .shadow-glow {
-    box-shadow: var(--shadow-glow);
   }
 
   /* ---------- Premium Text ---------- */
@@ -460,7 +361,8 @@
       135deg,
       #fffef8 0%,
       var(--gold) 40%,
-      #f8e5bc 70%,
+      #f8e5bc 80%,
+      #f8e5bc 50%,
       #ffffff 100%
     );
 
@@ -485,77 +387,6 @@
 
     box-shadow: 0 18px 45px rgba(212, 178, 122, 0.3);
   }
-
-  /* ---------- Background ---------- */
-
-  .bg-grid {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-
-    background-size: 48px 48px;
-  }
-
-  .bg-stars {
-    background:
-      radial-gradient(
-        circle at 20% 20%,
-        rgba(255, 255, 255, 0.25) 1px,
-        transparent 1px
-      ),
-      radial-gradient(
-        circle at 80% 35%,
-        rgba(255, 255, 255, 0.18) 1px,
-        transparent 1px
-      ),
-      radial-gradient(
-        circle at 40% 80%,
-        rgba(255, 255, 255, 0.18) 1px,
-        transparent 1px
-      ),
-      radial-gradient(
-        circle at 70% 70%,
-        rgba(255, 255, 255, 0.12) 1px,
-        transparent 1px
-      );
-
-    background-size: 340px 340px;
-  }
-
-  .bg-orion {
-    background:
-      radial-gradient(
-        circle at center,
-        rgba(212, 178, 122, 0.12),
-        transparent 55%
-      ),
-      radial-gradient(
-        circle at top,
-        rgba(124, 108, 255, 0.12),
-        transparent 45%
-      ),
-      linear-gradient(180deg, var(--hero-start), var(--hero-end));
-  }
-
-  /* ---------- Borders ---------- */
-
-  .border-glow {
-    border: 1px solid rgba(212, 178, 122, 0.18);
-  }
-
-  .border-soft {
-    border: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  /* ---------- Animations ---------- */
-
-  .animate-float {
-    animation: float 7s ease-in-out infinite;
-  }
-
-  .animate-glow {
-    animation: glow 5s ease-in-out infinite;
-  }
 }
 
 /* =======================================================
@@ -576,16 +407,3 @@
   }
 }
 
-@keyframes glow {
-  0% {
-    box-shadow: 0 0 0 rgba(212, 178, 122, 0.08);
-  }
-
-  50% {
-    box-shadow: 0 0 60px rgba(212, 178, 122, 0.16);
-  }
-
-  100% {
-    box-shadow: 0 0 0 rgba(212, 178, 122, 0.08);
-  }
-}

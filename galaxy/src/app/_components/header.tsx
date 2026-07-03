@@ -20,7 +20,7 @@ const Header = () => {
     <div className="h-fit w-full flex justify-between items-center py-1 px-2 md:px-6 shadow-soft fixed bg-background z-50">
       <div className="w-full lg:w-7xl lg:mx-auto flex justify-between items-center gap-3">
         {/* display logo here */}
-        <strong className="bg-linear-to-br from-[#b58b55] via-gold to-[#efd39e] bg-clip-text text-transparent md:text-xl lg:text-4xl md:tracking-wide m-0">
+        <strong className="text-gradient-gold text-transparent md:text-xl lg:text-4xl md:tracking-wide m-0">
           ORION
         </strong>
         {/* display menu bar on tablet devices or above*/}
