@@ -1,8 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { FaArrowRightLong } from "react-icons/fa6";
 import Vang from "../../../public/img/samsung-galaxy-ring-vang.webp";
-import SkeletonImage from "@/components/custom/skeleton-img";
-import { fadeInUpVariants } from "@/lib/motion/animations";
 import Image from "next/image";
 
 const HeroSection = () => {
@@ -42,7 +40,8 @@ const HeroSection = () => {
         }
       >
         <Image
-        fill
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
           src={Vang}
           alt="galaxy-vang"
           priority={true}

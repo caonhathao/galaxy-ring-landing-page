@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "../components/custom/theme-provider";
 import { LazyMotion, domAnimation } from "framer-motion";
+import { Toaster } from "sonner";
 const inter = Inter({
   subsets: ["latin"],
   display: "optional",
@@ -60,6 +61,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
+            <Toaster/>
           </ThemeProvider>
         </LazyMotion>
       </body>
