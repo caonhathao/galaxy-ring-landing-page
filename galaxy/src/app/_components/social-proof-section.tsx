@@ -13,7 +13,7 @@ import {
   staggerContainerVariants,
 } from "@/lib/motion/animations";
 import Autoplay from "embla-carousel-autoplay";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 const cardContent = [
   {
     customer: "Hoàng Hiệp \n(Kỹ sư phần mềm)",
@@ -43,7 +43,7 @@ const cardContent = [
 
 const SocialProofSection = () => {
   return (
-    <motion.section
+    <m.section
       id="social-proof"
       className="h-full w-full lg:max-w-7xl lg:mx-auto flex flex-col justify-center items-center gap-2 px-2 py-10 bg-card"
       variants={staggerContainerVariants}
@@ -54,13 +54,13 @@ const SocialProofSection = () => {
         amount: 0.2,
       }}
     >
-      <motion.h2
+      <m.h2
         className="font-bold text-2xl md:text-3xl"
         variants={fadeInUpVariants}
       >
         Nhận Xét Từ Khách Hàng
-      </motion.h2>
-      <motion.div variants={fadeInUpVariants}>
+      </m.h2>
+      <m.div variants={fadeInUpVariants}>
         <Carousel
           opts={{
             align: "start",
@@ -100,8 +100,8 @@ const SocialProofSection = () => {
           <CarouselPrevious className="hidden md:block" />
           <CarouselNext className="hidden md:block" />
         </Carousel>
-      </motion.div>
-    </motion.section>
+      </m.div>
+    </m.section>
   );
 };
 export default SocialProofSection;

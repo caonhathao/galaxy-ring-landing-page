@@ -13,7 +13,7 @@ export const staggerContainerVariants: Variants = {
 // Hiệu ứng đi từ dưới lên (Fade In Up)
 export const fadeInUpVariants: Variants = {
   offscreen: {
-    y: 40,
+    y: 20,
     opacity: 0,
   },
   onscreen: {

@@ -4,7 +4,7 @@ import RingDeo from "../../../public/img/galaxy-ring-silm1-pc.webp";
 import RingNuoc from "../../../public/img/Galaxy-Ring-specifications-and-information.webp";
 import RingHealth from "../../../public/img/galaxy-ring-samsung-health-endframe-mo.webp";
 import SkeletonImage from "@/components/custom/skeleton-img";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   fadeInUpVariants,
   staggerContainerVariants,
@@ -40,7 +40,7 @@ const SpecSection = () => {
       className="h-full w-full flex flex-col justify-center items-center gap-2"
     >
       {specContent.map((item, index) => (
-        <motion.section
+        <m.section
           key={"spec-section" + index}
           className={`${index % 2 == 0 ? "bg-card" : "bg-accent"} px-3 py-10 w-full lg:max-w-7xl lg:mx-auto md:grid md:grid-cols-2 md:grid-rows-1 md:gap-5`}
           variants={staggerContainerVariants}
@@ -51,7 +51,7 @@ const SpecSection = () => {
             amount: 0.2,
           }}
         >
-          <motion.div
+          <m.div
             className={`flex flex-col justify-center items-center gap-2 text-center md:text-left ${index % 2 == 0 ? "order-1" : "order-2"}`}
             variants={fadeInUpVariants}
           >
@@ -61,15 +61,16 @@ const SpecSection = () => {
             <p className="pl-3 pr-3 md:pr-5 md:pl-0 text-sm lg:text-lg font-normal text-muted-foreground md:leading-7">
               {item.desc}
             </p>
-          </motion.div>
-          <motion.div variants={fadeInUpVariants} className={`${index % 2 == 0 ? "order-2" : "order-1"}`}>
+          </m.div>
+          <m.div variants={fadeInUpVariants} className={`${index % 2 == 0 ? "order-2" : "order-1"}`}>
             <SkeletonImage
-              className="w-full h-auto rounded-sm mt-2 flex justify-center items-center"
+              className={`w-full h-auto aspect-square ${index % 2 == 0 ? "bg-card" : "bg-accent"} rounded-sm mt-2 flex justify-center items-center`}
               src={item.image}
               alt="spec-image"
+              loading="lazy"
             />
-          </motion.div>
-        </motion.section>
+          </m.div>
+        </m.section>
       ))}
     </div>
   );
