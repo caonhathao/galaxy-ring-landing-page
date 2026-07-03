@@ -3,7 +3,6 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactCompiler: true,
 
-  // 1. Cấu hình cho Webpack
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
@@ -12,7 +11,13 @@ const nextConfig: NextConfig = {
 
     return config;
   },
-
+  experimental: {
+    optimizePackageImports: [
+      "react-icons",
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+    ],
+  },
   turbopack: {
     rules: {
       "*.svg": {

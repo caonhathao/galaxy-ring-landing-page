@@ -6,8 +6,9 @@ import { ThemeProvider } from "../components/custom/theme-provider";
 import { LazyMotion, domAnimation } from "framer-motion";
 const inter = Inter({
   subsets: ["latin"],
-  display: "swap",
+  display: "optional",
   variable: "--font-sans",
+  weight: ["400", "700"],
 });
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://orion-ring-default.vercel.app";
@@ -43,12 +44,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(
-        "h-full",
-        "antialiased",
-        "font-sans",
-        inter.variable,
-      )}
+      className={cn("h-full", "antialiased", "font-sans", inter.variable)}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
