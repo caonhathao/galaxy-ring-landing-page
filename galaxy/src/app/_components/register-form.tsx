@@ -28,13 +28,14 @@ import {
   staggerContainerVariants,
 } from "@/lib/motion/animations";
 import { m } from "framer-motion";
-import { toast } from "sonner";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import {
   RegisterFormData,
   registerFormSchema,
 } from "@/lib/schemas/register-schema";
+import { registerUser } from "../actions/register-server";
+import { toast } from "sonner";
 
 const RegisterForm = () => {
   const form = useForm<RegisterFormData>({
@@ -47,21 +48,20 @@ const RegisterForm = () => {
     },
   });
 
-  function onSubmit(data: RegisterFormData) {
-    toast("You submitted the following values:", {
-      description: (
-        <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
-          <code>{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-      position: "bottom-right",
-      classNames: {
-        content: "flex flex-col gap-2",
-      },
-      style: {
-        "--border-radius": "calc(var(--radius)  + 4px)",
-      } as React.CSSProperties,
-    });
+  async function onSubmit(data: RegisterFormData) {
+    const res = await registerUser(data);
+    console.log(res);
+    if (res.result === "success") {
+      toast.success("Đăng kí thành công", {
+        description: "Đã ghi nhận thông tin của bạn!",
+        position: "top-right",
+      });
+    } else {
+      toast.error("Đăng kí thất bại", {
+        description: res.error,
+        position: "top-right",
+      });
+    }
   }
   return (
     <m.div
