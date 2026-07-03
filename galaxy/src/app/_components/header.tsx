@@ -1,35 +1,53 @@
-'use client';
+"use client";
 import { Button } from "@/components/ui/button";
 import { Menubar, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
+import { ModeToggle } from "./toggle-mode";
 
 const Header = () => {
   return (
-    <div className="h-fit w-full flex justify-between items-center py-1 px-2 shadow-soft fixed bg-background z-50">
+    <div className="h-fit w-full flex justify-between items-center py-1 px-2 md:px-6 shadow-soft fixed bg-background z-50">
       {/* display logo here */}
       <div>
-        <strong className="italic text-brand">Orion</strong>
+        <strong className="italic text-brand md:text-xl md:tracking-wide">
+          Orion
+        </strong>
       </div>
       {/* display menu bar here */}
       <div className="hidden md:inline">
         <Menubar>
           <MenubarMenu>
             <MenubarTrigger
-              onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+              className="md:text-sm"
+              onClick={() =>
+                document
+                  .getElementById("features-section")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
               Tính năng
             </MenubarTrigger>
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger
-              onClick={() => document.getElementById('spec')?.scrollIntoView({ behavior: 'smooth' })}
+              className="md:text-sm"
+              onClick={() =>
+                document
+                  .getElementById("spec-section")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
               Thông số
             </MenubarTrigger>
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger
-              onClick={() => document.getElementById('social-proof')?.scrollIntoView({ behavior: 'smooth' })}
+              className="md:text-sm"
+              onClick={() =>
+                document
+                  .getElementById("social-proof")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
               Đánh giá
             </MenubarTrigger>
@@ -37,9 +55,10 @@ const Header = () => {
         </Menubar>
       </div>
       {/* display buttons here */}
-      <div>
-        <Button size={"icon-lg"} variant={"outline"} className="min-h-11 min-w-11">
-          <MdOutlineAddShoppingCart />
+      <div className="flex flex-row justify-center items-center gap-3">
+        <ModeToggle />
+        <Button size={"icon"} variant={"outline"} className="rounded-lg">
+          <MdOutlineAddShoppingCart className="h-[1.2rem] w-[1.2rem] md:h-[1.4rem] md:w-[1.4rem]" />
         </Button>
       </div>
     </div>
