@@ -72,8 +72,7 @@
 
   --font-sans: var(--font-sans);
   --font-heading: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-
+  
   /* ==============================
      Radius
   ============================== */
@@ -377,21 +376,4 @@
   }
 }
 
-/* =======================================================
-   KEYFRAMES
-======================================================= */
-
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-
-  100% {
-    transform: translateY(0px);
-  }
-}
 

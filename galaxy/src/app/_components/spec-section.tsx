@@ -47,7 +47,7 @@ const SpecSection = () => {
           initial="offscreen"
           whileInView="onscreen"
           viewport={{
-            once: false,
+            once: true,
             amount: 0.2,
           }}
         >
@@ -62,11 +62,16 @@ const SpecSection = () => {
               {item.desc}
             </p>
           </m.div>
-          <m.div variants={fadeInUpVariants} className={`${index % 2 == 0 ? "order-2" : "order-1"}`}>
+          <m.div
+            variants={fadeInUpVariants}
+            className={`${index % 2 == 0 ? "order-2" : "order-1"}`}
+          >
             <SkeletonImage
               className={`w-full h-auto aspect-square ${index % 2 == 0 ? "bg-card" : "bg-accent"} rounded-sm mt-2 flex justify-center items-center`}
               src={item.image}
               alt="spec-image"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
             />
           </m.div>
         </m.section>

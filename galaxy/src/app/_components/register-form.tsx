@@ -75,7 +75,7 @@ const RegisterForm = () => {
       initial="offscreen"
       whileInView="onscreen"
       viewport={{
-        once: false,
+        once: true,
         amount: 0.2,
       }}
       className="py-2"

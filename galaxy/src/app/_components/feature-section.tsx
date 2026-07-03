@@ -37,7 +37,7 @@ const FeatureSection = () => {
   return (
     <section
       id="features-section"
-      className="h-full w-full lg:max-w-7xl lg:mx-auto px-3 py-5 mt-5"
+      className="h-full w-full lg:max-w-7xl lg:mx-auto px-3 py-10"
     >
       <m.div
         className="flex flex-col justify-center items-center gap-2"
@@ -45,12 +45,12 @@ const FeatureSection = () => {
         initial="offscreen"
         whileInView="onscreen"
         viewport={{
-          once: false,
+          once: true,
           amount: 0.2,
         }}
       >
         <m.h2
-          className="font-bold text-2xl md:text-3xl lg:text-4xl text-center"
+          className="font-bold text-2xl md:text-3xl lg:text-4xl text-center py-2"
           variants={fadeInUpVariants}
         >
           Tuyệt Tác Công Nghệ Trên Ngón Tay Bạn

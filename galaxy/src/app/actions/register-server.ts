@@ -24,7 +24,7 @@ export async function registerUser(data: RegisterFormData) {
       },
       body: JSON.stringify(data),
     });
-    console.log(response);
+    // console.log(response);
     const result = await response.json();
     return result;
   } catch (err) {
