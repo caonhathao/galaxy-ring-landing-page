@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
-  
+
   // 1. Cấu hình cho Webpack
   webpack(config) {
     config.module.rules.push({
@@ -13,7 +13,6 @@ const nextConfig: NextConfig = {
     return config;
   },
 
-  // 2. ĐƯA RA NGOÀI CẤP CAO NHẤT (Sửa lỗi TypeScript của bạn)
   turbopack: {
     rules: {
       "*.svg": {
@@ -22,8 +21,16 @@ const nextConfig: NextConfig = {
       },
     },
   },
-
-  allowedDevOrigins: ['192.168.1.6']
+  allowedDevOrigins: ["192.168.1.6"],
+  images: {
+    minimumCacheTTL: 2592000,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "avatars.gihubusercontent.com",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

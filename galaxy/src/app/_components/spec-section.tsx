@@ -68,6 +68,7 @@ const SpecSection = () => {
               src={item.image}
               alt="spec-image"
               loading="lazy"
+            
             />
           </m.div>
         </m.section>

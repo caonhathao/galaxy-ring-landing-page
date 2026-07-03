@@ -82,7 +82,7 @@ const SocialProofSection = () => {
                   <Card size="sm" className="w-full h-full rounded-sm">
                     <CardHeader className="flex flex-row justify-start items-center gap-2">
                       <Avatar size="lg">
-                        <AvatarImage src={item.avatar} alt={item.customer} />
+                        <AvatarImage src={item.avatar} alt={item.customer} sizes="70px"/>
                         <AvatarFallback>A</AvatarFallback>
                       </Avatar>
                       <CardTitle className="flex items-center gap-5 whitespace-pre-line lg:text-lg">

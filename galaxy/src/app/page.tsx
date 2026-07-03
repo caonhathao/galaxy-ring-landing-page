@@ -2,7 +2,7 @@ import FeatureSection from "./_components/feature-section";
 import Footer from "./_components/footer";
 import Header from "./_components/header";
 import HeroSection from "./_components/hero-section";
-import RegistrationForm from "./_components/registration-form";
+import RegistrationSection from "./_components/registration-section";
 import SocialProofSection from "./_components/social-proof-section";
 import SpecSection from "./_components/spec-section";
 
@@ -14,7 +14,7 @@ export default function Home() {
       <FeatureSection />
       <SpecSection />
       <SocialProofSection />
-      <RegistrationForm />
+      <RegistrationSection />
       <Footer/>
     </div>
   );
