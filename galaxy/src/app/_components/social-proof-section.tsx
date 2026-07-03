@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { CardHeader, CardTitle, CardContent, Card } from "@/components/ui/card";
 import {
@@ -12,8 +13,11 @@ import {
   fadeInUpVariants,
   staggerContainerVariants,
 } from "@/lib/motion/animations";
-import Autoplay from "embla-carousel-autoplay";
 import { m } from "framer-motion";
+import type useEmblaCarousel from "embla-carousel-react";
+
+type CarouselPlugin = Parameters<typeof useEmblaCarousel>[1];
+
 const cardContent = [
   {
     customer: "Hoàng Hiệp \n(Kỹ sư phần mềm)",
@@ -35,13 +39,26 @@ const cardContent = [
   },
   {
     customer: "Hồng Phấn \n(Giáo viên về hưu)",
-    avatar: "",
+    avatar: "https://github.com/shadcn.png",
     review:
       "Chiến nhẫn này giúp tôi theo dõi sức khỏe và nhịp tim của mình một cách dễ dàng. Tôi cảm thấy yên tâm hơn khi đi dạo hay tập thể dục. Orion đã thật sự tạo ra được một sản phẩm thiết thực, hữu ích trong việc theo dõi sức khỏe người dùng.",
   },
 ];
 
 const SocialProofSection = () => {
+  const [plugins, setPlugins] = useState<CarouselPlugin>([]);
+
+  useEffect(() => {
+    import("embla-carousel-autoplay").then((mod) => {
+      const autoplay = mod.default({
+        stopOnInteraction: true,
+        stopOnMouseEnter: true,
+        playOnInit: true,
+      });
+      setPlugins([autoplay]);
+    });
+  }, []);
+
   return (
     <m.section
       id="social-proof"
@@ -50,7 +67,7 @@ const SocialProofSection = () => {
       initial="offscreen"
       whileInView="onscreen"
       viewport={{
-        once: false,
+        once: true,
         amount: 0.2,
       }}
     >
@@ -66,13 +83,7 @@ const SocialProofSection = () => {
             align: "start",
             loop: true,
           }}
-          plugins={[
-            Autoplay({
-              stopOnInteraction: true,
-              stopOnMouseEnter: true,
-              playOnInit: true,
-            }),
-          ]}
+          plugins={plugins}
           className="w-full max-w-64 sm:max-w-4/5 mx-auto"
         >
           <CarouselContent>

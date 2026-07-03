@@ -10,6 +10,7 @@ const inter = Inter({
   display: "optional",
   variable: "--font-sans",
   axes: ["opsz"],
+  preload: true,
 });
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://orion-ring-default.vercel.app";
@@ -35,10 +36,6 @@ export const metadata: Metadata = {
     locale: "vi_VN",
     type: "website",
   },
-  other: {
-    "link:image-preload":
-      '<link rel="preload" as="image" href="/img/samsung-galaxy-ring-vang.webp" fetchpriority="high" />',
-  },
 };
 
 export default function RootLayout({
@@ -61,7 +58,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
-            <Toaster/>
+            <Toaster />
           </ThemeProvider>
         </LazyMotion>
       </body>

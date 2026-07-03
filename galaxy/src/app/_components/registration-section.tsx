@@ -4,8 +4,7 @@ import {
   staggerContainerVariants,
 } from "@/lib/motion/animations";
 import { m } from "framer-motion";
-import dynamic from "next/dynamic";
-const RegisterForm =dynamic(()=>import("./register-form"))
+import RegisterForm from "./register-form";
 
 const RegistrationForm = () => {
 
@@ -20,7 +19,7 @@ const RegistrationForm = () => {
         initial="offscreen"
         whileInView="onscreen"
         viewport={{
-          once: false,
+          once: true,
           amount: 0.2,
         }}
       >
