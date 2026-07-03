@@ -23,7 +23,7 @@ const HeroSection = () => {
         <p className="pl-3 pr-3 md:pr-5 md:pl-0 text-sm md:text-lg md:leading-7 font-normal text-muted-foreground">
           Chiếc nhẫn thông minh mỏng nhẹ nhất thế giới tích hợp AI sinh trắc học
           thế hệ mới. Theo dõi sức khỏe chủ động, điều khiển không gian sống chỉ
-          bằng một cái chạ
+          bằng một cái chạm
         </p>
 
         <div className="w-full flex justify-center lg:justify-start mt-2">

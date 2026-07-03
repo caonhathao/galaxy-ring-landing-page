@@ -69,7 +69,10 @@ const Header = () => {
           {/* display on mobile devices at a button */}
           <div className="md:hidden flex justify-center items-center">
             <DropdownMenu onOpenChange={(open) => setIsExpanded(open)}>
-              <DropdownMenuTrigger>
+              <DropdownMenuTrigger
+                id="menu-trigger-button"
+                aria-label="open navigate menu"
+              >
                 <div className="relative flex items-center justify-center size-5">
                   <RxHamburgerMenu
                     className={`absolute transition-all duration-300 ${
@@ -120,7 +123,12 @@ const Header = () => {
             </DropdownMenu>
           </div>
           <ModeToggle />
-          <Button size={"icon-lg"} variant={"outline"} className="rounded-lg">
+          <Button
+            size={"icon-lg"}
+            variant={"outline"}
+            className="rounded-lg"
+            aria-label="shopping card"
+          >
             <MdOutlineAddShoppingCart />
           </Button>
         </div>

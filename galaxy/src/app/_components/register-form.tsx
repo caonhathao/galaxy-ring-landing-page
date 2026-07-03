@@ -221,6 +221,7 @@ const RegisterForm = () => {
                 size={"lg"}
                 form="form-rhf-demo"
                 className="btn-gold px-1 py-2 lg:p-5 min-h-11 rounded-full w-4/5 md:w-1/2 lg:w-auto hover:opacity-90"
+                aria-label="register button"
               >
                 Đăng ký ngay
                 {isPending ? (

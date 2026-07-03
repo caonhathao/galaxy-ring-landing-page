@@ -1,4 +1,4 @@
-import { Variants } from "framer-motion";
+import type { Variants } from "framer-motion";
 
 // Hiệu ứng container xuất hiện tuần tự cho các phần tử con
 export const staggerContainerVariants: Variants = {

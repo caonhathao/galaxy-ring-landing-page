@@ -1,24 +1,24 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "../components/custom/theme-provider";
 import { LazyMotion, domAnimation } from "framer-motion";
 import { Toaster } from "sonner";
-const inter = Inter({
-  subsets: ["latin"],
-  display: "optional",
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["vietnamese"],
   variable: "--font-sans",
-  axes: ["opsz"],
-  preload: true,
+  display: "swap",
 });
+
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://orion-ring-default.vercel.app";
+
 export const metadata: Metadata = {
   title: "ORION RING",
   description:
     "Trải nghiệm chiếc nhẫn thông minh mỏng nhẹ nhất thế giới tích hợp AI sinh trắc học.",
-
   openGraph: {
     title: "Orion Ring - Tuyệt Tác Nhẫn Thông Minh Thế Hệ Mới",
     description:
@@ -45,8 +45,13 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={cn("h-full", "antialiased", "font-sans", inter.variable)}
+      lang="vi"
+      className={cn(
+        "h-full",
+        "antialiased",
+        "font-sans",
+        plusJakartaSans.variable,
+      )}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">

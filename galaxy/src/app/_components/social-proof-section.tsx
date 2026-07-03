@@ -62,7 +62,7 @@ const SocialProofSection = () => {
   return (
     <m.section
       id="social-proof"
-      className="h-full w-full lg:max-w-7xl lg:mx-auto flex flex-col justify-center items-center gap-2 px-2 py-10 bg-card"
+      className="h-full w-full lg:max-w-7xl lg:mx-auto flex flex-col justify-center items-center gap-2 px-2 py-10 bg-background"
       variants={staggerContainerVariants}
       initial="offscreen"
       whileInView="onscreen"
