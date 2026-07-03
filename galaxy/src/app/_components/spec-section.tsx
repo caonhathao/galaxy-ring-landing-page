@@ -1,8 +1,8 @@
 "use client";
-import RingDen from "../../../public/img/samsung-galaxy-ring-den-1.jpg";
-import RingDeo from "../../../public/img/galaxy-ring-silm1-pc.jpg";
+import RingDen from "../../../public/img/samsung-galaxy-ring-den-1.webp";
+import RingDeo from "../../../public/img/galaxy-ring-silm1-pc.webp";
 import RingNuoc from "../../../public/img/Galaxy-Ring-specifications-and-information.webp";
-import RingHealth from "../../../public/img/galaxy-ring-samsung-health-endframe-mo.jpg";
+import RingHealth from "../../../public/img/galaxy-ring-samsung-health-endframe-mo.webp";
 import SkeletonImage from "@/components/custom/skeleton-img";
 import { motion } from "framer-motion";
 import {
@@ -42,7 +42,7 @@ const SpecSection = () => {
       {specContent.map((item, index) => (
         <motion.section
           key={"spec-section" + index}
-          className={`${index % 2 == 0 ? "bg-card" : "bg-accent"} px-3 py-5 w-full md:grid md:grid-cols-2 md:grid-rows-1 md:gap-5`}
+          className={`${index % 2 == 0 ? "bg-card" : "bg-accent"} px-3 py-10 w-full lg:max-w-7xl lg:mx-auto md:grid md:grid-cols-2 md:grid-rows-1 md:gap-5`}
           variants={staggerContainerVariants}
           initial="offscreen"
           whileInView="onscreen"
@@ -55,10 +55,10 @@ const SpecSection = () => {
             className={`flex flex-col justify-center items-center gap-2 text-center md:text-left ${index % 2 == 0 ? "order-1" : "order-2"}`}
             variants={fadeInUpVariants}
           >
-            <h2 className="w-full font-bold text-2xl md:text-3xl whitespace-pre-line">
+            <h2 className="w-full font-bold text-2xl md:text-3xl lg:text-4xl whitespace-pre-line">
               {item.title}
             </h2>
-            <p className="pl-3 pr-3 md:pr-5 md:pl-0 text-sm font-normal text-muted-foreground md:leading-7">
+            <p className="pl-3 pr-3 md:pr-5 md:pl-0 text-sm lg:text-lg font-normal text-muted-foreground md:leading-7">
               {item.desc}
             </p>
           </motion.div>

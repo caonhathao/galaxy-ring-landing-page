@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { FaArrowRightLong } from "react-icons/fa6";
-import Vang from "../../../public/img/samsung-galaxy-ring-vang.jpg";
+import Vang from "../../../public/img/samsung-galaxy-ring-vang.webp";
 import { motion } from "framer-motion";
 import SkeletonImage from "@/components/custom/skeleton-img";
 import {
@@ -13,10 +13,10 @@ const HeroSection = () => {
   return (
     <section
       id="hero-section"
-      className="h-full w-full grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1 justify-center items-center gap-2 px-3 py-5 mt-10"
+      className="h-full w-full lg:max-w-7xl lg:mx-auto grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1 justify-center items-center gap-2 lg:gap-12 px-3 py-5 mt-10 lg:mt-15"
     >
       <motion.div
-        className="flex flex-col justify-center items-center gap-2 text-center md:text-left font-bold md:col-span-1"
+        className="flex flex-col justify-center items-center gap-2 text-center md:text-left md:col-span-1 font-bold"
         variants={staggerContainerVariants}
         initial="offscreen"
         whileInView="onscreen"
@@ -25,11 +25,17 @@ const HeroSection = () => {
           amount: 0.2,
         }}
       >
-        <motion.h1 className="w-full text-brand text-2xl md:text-3xl" variants={fadeInUpVariants}>
+        <motion.h1
+          className="w-full text-brand text-2xl md:text-3xl lg:text-6xl"
+          variants={fadeInUpVariants}
+        >
           Orion
         </motion.h1>
 
-        <motion.h2 className="text-2xl md:text-3xl" variants={fadeInUpVariants}>
+        <motion.h2
+          className="w-full text-2xl md:text-3xl lg:text-4xl"
+          variants={fadeInUpVariants}
+        >
           Không chỉ là một chiếc nhẫn
           <br />
           Vĩnh hằng. Vô tận. Vượt mọi giới hạn.
@@ -46,9 +52,9 @@ const HeroSection = () => {
 
         <motion.div
           variants={fadeInUpVariants}
-          className="w-full flex justify-center mt-2"
+          className="w-full flex justify-center lg:justify-start mt-2"
         >
-          <Button className="min-h-11 rounded-full py-2 btn-gold w-4/5 md:max-w-xs">
+          <Button className="min-h-11 lg:w-auto lg:p-5 rounded-full py-2 btn-gold w-4/5 md:max-w-xs lg:text-lg hover:opacity-90">
             Đặt trước ngay
             <FaArrowRightLong />
           </Button>
@@ -66,11 +72,12 @@ const HeroSection = () => {
         }}
       >
         <SkeletonImage
-          className="w-full h-60 md:h-80 rounded-md mt-4"
+          className="w-full h-60 md:h-80 rounded-md mt-4 lg:mt-0"
           variants={fadeInUpVariants}
           fill
           loading="eager"
           src={Vang}
+          sizes="(max-width: 768px) 100vw, 50vw"
           alt="galaxy-vang"
         />
       </motion.div>

@@ -70,7 +70,7 @@ const RegistrationForm = () => {
   return (
     <section
       id="registration"
-      className="h-full w-full px-3 py-5 mt-5 md:grid md:grid-cols-2 md:grid-rows-1 md:gap-2"
+      className="h-full w-full lg:max-w-7xl lg:mx-auto px-3 py-5 mt-5 md:grid md:grid-cols-2 md:grid-rows-1 md:gap-2"
     >
       <motion.div
         className="py-2 flex flex-col justify-center items-center gap-2 text-center md:text-left"
@@ -83,13 +83,13 @@ const RegistrationForm = () => {
         }}
       >
         <motion.h2
-          className="font-bold text-2xl md:text-3xl md:text-left"
+          className="font-bold text-2xl md:text-3xl lg:text-4xl md:text-left"
           variants={fadeInUpVariants}
         >
           Trở Thành Những Người Đầu Tiên Sở Hữu
         </motion.h2>
         <motion.p
-          className="pl-3 pr-3 md:pr-5 md:pl-0  text-sm font-normal text-muted-foreground md:leading-7 md:text-left"
+          className="pl-3 pr-3 md:pr-5 md:pl-0 text-sm lg:text-lg font-normal text-muted-foreground md:leading-7 md:text-left"
           variants={fadeInUpVariants}
         >
           Đăng kí pre-order ngay hôm nay để nhận ưu đãi giảm 15% và gói đặc
@@ -130,7 +130,10 @@ const RegistrationForm = () => {
                     control={form.control}
                     render={({ field, fieldState }) => (
                       <Field data-invalid={fieldState.invalid}>
-                        <FieldLabel htmlFor="field-name-title">
+                        <FieldLabel
+                          htmlFor="field-name-title"
+                          className="lg:text-lg"
+                        >
                           Họ và Tên
                         </FieldLabel>
                         <Input
@@ -152,7 +155,10 @@ const RegistrationForm = () => {
                     control={form.control}
                     render={({ field, fieldState }) => (
                       <Field data-invalid={fieldState.invalid}>
-                        <FieldLabel htmlFor="field-phone-title">
+                        <FieldLabel
+                          htmlFor="field-phone-title"
+                          className="lg:text-lg"
+                        >
                           Số điện thoại
                         </FieldLabel>
                         <Input
@@ -174,7 +180,10 @@ const RegistrationForm = () => {
                     control={form.control}
                     render={({ field, fieldState }) => (
                       <Field data-invalid={fieldState.invalid}>
-                        <FieldLabel htmlFor="field-email-title">
+                        <FieldLabel
+                          htmlFor="field-email-title"
+                          className="lg:text-lg"
+                        >
                           Email
                         </FieldLabel>
                         <Input
@@ -197,7 +206,10 @@ const RegistrationForm = () => {
                     control={form.control}
                     render={({ field, fieldState }) => (
                       <Field data-invalid={fieldState.invalid}>
-                        <FieldLabel htmlFor="field-email-title">
+                        <FieldLabel
+                          htmlFor="field-email-title"
+                          className="lg:text-lg"
+                        >
                           Kích thước vòng nhẫn
                         </FieldLabel>
                         <Select
@@ -236,7 +248,7 @@ const RegistrationForm = () => {
                   type="submit"
                   size={"lg"}
                   form="form-rhf-demo"
-                  className="btn-gold px-1 py-2 min-h-11 rounded-full w-4/5 md:w-1/2"
+                  className="btn-gold px-1 py-2 lg:p-5 min-h-11 rounded-full w-4/5 md:w-1/2 lg:w-auto hover:opacity-90"
                 >
                   Đăng ký ngay
                 </Button>
