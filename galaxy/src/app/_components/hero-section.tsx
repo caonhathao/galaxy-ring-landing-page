@@ -3,6 +3,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import Vang from "../../../public/img/samsung-galaxy-ring-vang.webp";
 import SkeletonImage from "@/components/custom/skeleton-img";
 import { fadeInUpVariants } from "@/lib/motion/animations";
+import Image from "next/image";
 
 const HeroSection = () => {
   return (
@@ -35,16 +36,17 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="w-full">
-        <SkeletonImage
-          className="w-full h-60 md:h-90 aspect-square bg-muted-foreground rounded-md mt-4 lg:mt-0"
-          variants={fadeInUpVariants}
-           useSkeleton={false}
-          fill
+      <div
+        className={
+          "relative overflow-hidden w-full h-60 md:h-80 aspect-square bg-transparent rounded-md mt-4 lg:mt-0"
+        }
+      >
+        <Image
+        fill
           src={Vang}
-          sizes="(max-width: 768px) 100vw, 50vw"
           alt="galaxy-vang"
           priority={true}
+          className={"object-cover transition-opacity duration-300"}
         />
       </div>
     </section>
