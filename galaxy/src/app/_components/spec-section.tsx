@@ -42,7 +42,7 @@ const SpecSection = () => {
       {specContent.map((item, index) => (
         <m.section
           key={"spec-section" + index}
-          className={`${index % 2 == 0 ? "bg-card" : "bg-accent"} px-3 py-10 w-full lg:max-w-7xl lg:mx-auto md:grid md:grid-cols-2 md:grid-rows-1 md:gap-5`}
+          className={`${index % 2 == 0 ? "bg-background" : "bg-accent"} px-3 py-10 w-full lg:max-w-7xl lg:mx-auto md:grid md:grid-cols-2 md:grid-rows-1 md:gap-5`}
           variants={staggerContainerVariants}
           initial="offscreen"
           whileInView="onscreen"
@@ -67,7 +67,7 @@ const SpecSection = () => {
             className={`${index % 2 == 0 ? "order-2" : "order-1"}`}
           >
             <SkeletonImage
-              className={`w-full h-auto aspect-square ${index % 2 == 0 ? "bg-card" : "bg-accent"} rounded-sm mt-2 flex justify-center items-center`}
+              className={`w-full h-auto aspect-square ${index % 2 == 0 ? "bg-background" : "bg-accent"} rounded-sm mt-2 flex justify-center items-center`}
               src={item.image}
               alt="spec-image"
               fill
