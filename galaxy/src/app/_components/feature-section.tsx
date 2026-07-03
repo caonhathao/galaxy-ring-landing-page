@@ -11,7 +11,7 @@ import {
   fadeInUpVariants,
   staggerContainerVariants,
 } from "@/lib/motion/animations";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { MdOutlineEnergySavingsLeaf, MdOutlineTouchApp } from "react-icons/md";
 import { SiGoogleassistant } from "react-icons/si";
 
@@ -39,7 +39,7 @@ const FeatureSection = () => {
       id="features-section"
       className="h-full w-full lg:max-w-7xl lg:mx-auto px-3 py-5 mt-5"
     >
-      <motion.div
+      <m.div
         className="flex flex-col justify-center items-center gap-2"
         variants={staggerContainerVariants}
         initial="offscreen"
@@ -49,13 +49,13 @@ const FeatureSection = () => {
           amount: 0.2,
         }}
       >
-        <motion.h2
+        <m.h2
           className="font-bold text-2xl md:text-3xl lg:text-4xl text-center"
           variants={fadeInUpVariants}
         >
           Tuyệt Tác Công Nghệ Trên Ngón Tay Bạn
-        </motion.h2>
-        <motion.div variants={fadeInUpVariants}>
+        </m.h2>
+        <m.div variants={fadeInUpVariants}>
           <Carousel
             opts={{
               align: "start",
@@ -86,8 +86,8 @@ const FeatureSection = () => {
             <CarouselPrevious className="lg:hidden" />
             <CarouselNext className="lg:hidden" />
           </Carousel>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </section>
   );
 };

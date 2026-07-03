@@ -3,7 +3,7 @@ import { ComponentProps, useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Skeleton } from "../ui/skeleton";
-import { motion, Variants } from "framer-motion";
+import { m, Variants } from "framer-motion";
 
 interface ISkeletonImageProps extends ComponentProps<typeof Image> {
   className: string;
@@ -18,7 +18,7 @@ const SkeletonImage = ({
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <motion.div
+    <m.div
       className={cn("relative overflow-hidden", className)}
       variants={variants}
     >
@@ -32,7 +32,7 @@ const SkeletonImage = ({
         )}
         onLoad={() => setLoaded(true)}
       />
-    </motion.div>
+    </m.div>
   );
 };
 
